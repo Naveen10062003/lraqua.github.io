@@ -1,5 +1,6 @@
 import { motion as Motion } from "framer-motion";
-import { Clock, IndianRupee, MapPin, Calendar, CheckSquare } from "lucide-react";
+import { Clock, IndianRupee, MapPin, Calendar, CheckSquare, PhoneCall } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CASE_STUDIES = [
   {
@@ -135,6 +136,42 @@ export default function CaseStudies() {
             </div>
           </Motion.div>
         ))}
+
+        {/* Update Soon Card */}
+        <Motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-white border-2 border-dashed border-sky-200 rounded-3xl p-8 sm:p-12 text-center shadow-sm relative overflow-hidden space-y-6"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-sky-50 text-brand-sky flex items-center justify-center mx-auto shadow-inner border border-sky-100">
+            <Clock className="w-8 h-8" />
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/70 text-brand-sky text-xs font-bold uppercase tracking-wider">
+            <span>Updating Soon</span>
+          </div>
+
+          <div className="space-y-3 max-w-lg mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              More Case Studies Updating Soon
+            </h3>
+            <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+              We are currently compiling on-site progress logs, RCC foundation inspections, and before/after handover records for our active pool construction projects. Real site photos and timelines will be updated soon!
+            </p>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-sky text-white font-bold text-sm hover:bg-sky-500 shadow-md shadow-sky-500/20 transition-all"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>Discuss Your Site Requirements</span>
+            </Link>
+          </div>
+        </Motion.div>
       </div>
 
     </div>
